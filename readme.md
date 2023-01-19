@@ -1,0 +1,1 @@
+vite, solid, typescript, tailwind
