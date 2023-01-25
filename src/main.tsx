@@ -3,6 +3,7 @@ import { createSignal, Component, JSXElement } from 'solid-js'
 import { render } from 'solid-js/web'
 
 import { A, Routes, Route, Router } from "@solidjs/router"
+import { Editor } from './editor'
 
 const Center: Component<{ children: JSXElement }> = (props) => {
   return <div class='flex flex-row'>
@@ -27,16 +28,22 @@ const About = () => {
   </Center>
 }
 
+const EditorPage = () => {
+  return  <div class='m-2 p-2 rounded-md bg-white text-black h-screen' ><Editor/></div>
+}
+
 function App() {
   return <>
     <nav>
       <A class='p-2 hover:text-blue-600 text-blue-700' href="/about">About</A>
       <A class='p-2 hover:text-blue-600 text-blue-700' href="/">Home</A>
+      <A class='p-2 hover:text-blue-600 text-blue-700' href="/editor">Editor</A>
     </nav>
 
     <Routes>
       <Route path="/" component={Home} />
       <Route path="/about" component={About} />
+      <Route path="/editor" component={EditorPage} />
     </Routes>
   </>
 }
